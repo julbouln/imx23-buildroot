@@ -1,0 +1,26 @@
+From 59bab0a78137e05b5376329356fc098188487f4a Mon Sep 17 00:00:00 2001
+From: Christian Jann <christian.jann@ymail.com>
+Date: Thu, 3 Oct 2013 17:30:10 +0200
+Subject: [PATCH 5/5] ARM: imx23-olinuxino: Set compatibily for i2c0 to imx23
+ instead of imx28
+
+---
+ arch/arm/boot/dts/imx23.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/imx23.dtsi b/arch/arm/boot/dts/imx23.dtsi
+index d3965aa..fcb76cb 100644
+--- a/arch/arm/boot/dts/imx23.dtsi
++++ b/arch/arm/boot/dts/imx23.dtsi
+@@ -475,7 +475,7 @@
+ 			i2c: i2c@80058000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+-				compatible = "fsl,imx28-i2c";
++				compatible = "fsl,imx23-i2c";
+ 				reg = <0x80058000 0x2000>;
+ 				interrupts = <27>;
+ 				clock-frequency = <100000>;
+-- 
+1.8.3.1
+

@@ -1,0 +1,10 @@
+--- linux/arch/arm/boot/dts/imx23-olinuxino.dts	2015-01-05 21:40:43.601130273 +0100
++++ imx23-olinuxino.dts	2015-01-05 22:18:14.661171692 +0100
+@@ -126,6 +126,7 @@
+ 	ahb@80080000 {
+ 		usb0: usb@80080000 {
+ 			vbus-supply = <&reg_usb0_vbus>;
++			dr_mode = "peripheral";
+ 			status = "okay";
+ 		};
+ 	};

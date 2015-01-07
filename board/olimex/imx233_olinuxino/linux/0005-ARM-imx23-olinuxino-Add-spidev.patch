@@ -1,0 +1,31 @@
+From 20b88ba27ea46b2b1607a87019f57cb1165aad3e Mon Sep 17 00:00:00 2001
+From: Christian Jann <christian.jann@ymail.com>
+Date: Sun, 6 Oct 2013 11:40:32 +0200
+Subject: [PATCH] ARM: imx23-olinuxino: Add spidev
+
+---
+ arch/arm/boot/dts/imx23-olinuxino.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx23-olinuxino.dts b/arch/arm/boot/dts/imx23-olinuxino.dts
+index 8d3e940..6126105 100644
+--- a/arch/arm/boot/dts/imx23-olinuxino.dts
++++ b/arch/arm/boot/dts/imx23-olinuxino.dts
+@@ -64,7 +64,14 @@
+ 				compatible = "fsl,imx23-spi";
+ 				pinctrl-names = "default";
+ 				pinctrl-0 = <&spi2_pins_a>;
++				clock-frequency = <1000000>;
+ 				status = "okay";
++				
++				spidev: spidev@0 {
++					compatible = "spidev";
++					spi-max-frequency = <1000000>;
++					reg = <0>;
++				};
+ 			};
+ 		};
+ 
+-- 
+1.8.3.1
+

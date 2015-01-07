@@ -1,0 +1,54 @@
+diff -ruN TiMidity++-2.14.0.orig/configure TiMidity++-2.14.0/configure
+--- TiMidity++-2.14.0.orig/configure	2012-06-28 16:14:25.000000000 +0200
++++ TiMidity++-2.14.0/configure	2015-01-07 22:52:01.340467683 +0100
+@@ -11966,7 +11966,7 @@
+ See \`config.log' for more details." >&5
+ echo "$as_me: error: cannot run test program while cross compiling
+ See \`config.log' for more details." >&2;}
+-   { (exit 1); exit 1; }; }
++}
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -12027,7 +12027,7 @@
+ See \`config.log' for more details." >&5
+ echo "$as_me: error: cannot run test program while cross compiling
+ See \`config.log' for more details." >&2;}
+-   { (exit 1); exit 1; }; }
++   }
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -12103,7 +12103,7 @@
+ See \`config.log' for more details." >&5
+ echo "$as_me: error: cannot run test program while cross compiling
+ See \`config.log' for more details." >&2;}
+-   { (exit 1); exit 1; }; }
++}
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+diff -ruN TiMidity++-2.14.0.orig/timidity/Makefile.in TiMidity++-2.14.0/timidity/Makefile.in
+--- TiMidity++-2.14.0.orig/timidity/Makefile.in	2012-06-28 16:14:25.000000000 +0200
++++ TiMidity++-2.14.0/timidity/Makefile.in	2015-01-07 22:52:09.308467721 +0100
+@@ -1959,16 +1959,16 @@
+ resample.c: newton_table.c
+ 
+ @VCPP_TRUE@newton_table.c: calcnewt$(EXEEXT)
+-@VCPP_TRUE@	./calcnewt $@
++@VCPP_TRUE@	touch $@ 
+ 
+ @POCC_TRUE@@VCPP_FALSE@newton_table.c: calcnewt$(EXEEXT)
+-@POCC_TRUE@@VCPP_FALSE@	./calcnewt $@
++@POCC_TRUE@@VCPP_FALSE@	touch $@
+ 
+ @POCC_FALSE@@VCPP_FALSE@@WATCOM_C_TRUE@newton_table.c: calcnewt$(EXEEXT)
+-@POCC_FALSE@@VCPP_FALSE@@WATCOM_C_TRUE@	./calcnewt > $@
++@POCC_FALSE@@VCPP_FALSE@@WATCOM_C_TRUE@	touch $@
+ 
+ @POCC_FALSE@@VCPP_FALSE@@WATCOM_C_FALSE@newton_table.c: calcnewt$(EXEEXT)
+-@POCC_FALSE@@VCPP_FALSE@@WATCOM_C_FALSE@	./calcnewt > $@
++@POCC_FALSE@@VCPP_FALSE@@WATCOM_C_FALSE@	touch $@
+ 
+ $(top_builddir)/interface/libinterface.a $(W32GUI_RES):
+ 	cd $(top_builddir)/interface; $(MAKE)
